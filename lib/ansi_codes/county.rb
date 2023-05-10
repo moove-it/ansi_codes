@@ -60,7 +60,7 @@ module AnsiCodes
     def self.find(state, county)
       state = state.is_a?(State) ? state : State.find(state)
       case county
-      when Fixnum
+      when Integer
         county, selector = '%03d' % county, :ansi_code
       when String
         selector = county =~ /^[0-9]{3}$/ ? :ansi_code : :name
