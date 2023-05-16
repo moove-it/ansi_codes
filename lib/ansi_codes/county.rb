@@ -75,7 +75,7 @@ module AnsiCodes
     @counties = Hash[State.all.map {|state| [state, { ansi_code: {}, name: {} }] }]
     data_file = File.expand_path('../../../data/national_county.txt', __FILE__)
     options = { headers: true, header_converters: :symbol }
-    CSV.foreach(data_file, options) do |row|
+    CSV.foreach(data_file, **options) do |row|
       new row[:state_ansi], row[:county_ansi], row[:county_name]
     end
     @counties.values.flat_map(&:values).map(&:freeze)

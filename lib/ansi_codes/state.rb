@@ -77,7 +77,7 @@ module AnsiCodes
     @states = { ansi_code: {}, name: {}, abbreviation: {} }
     data_file = File.expand_path('../../../data/state.txt', __FILE__)
     options = { col_sep: '|', headers: true, header_converters: :symbol }
-    CSV.foreach(data_file, options) do |row|
+    CSV.foreach(data_file, **options) do |row|
       new row[:state], row[:state_name], row[:stusab]
     end
     @states.values.map &:freeze
