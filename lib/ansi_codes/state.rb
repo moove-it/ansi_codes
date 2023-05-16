@@ -45,9 +45,9 @@ module AnsiCodes
     end
 
     # Look up a state by ANSI code, abbreviation, or name
-    # @param [Fixnum, String] value the lookup query
+    # @param [Integer, String] value the lookup query
     # @return [State] the {State} associated with the query parameter
-    # @raise [ArgumentError] if the argument is not a Fixnum or String
+    # @raise [ArgumentError] if the argument is not a Integer or String
     # @raise [RuntimeError] if no associated {State} is found
     def self.find(value)
       case value

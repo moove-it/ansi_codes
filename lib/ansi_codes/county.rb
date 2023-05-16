@@ -50,12 +50,12 @@ module AnsiCodes
     end
 
     # Look up a county by state and county ANSI code or name
-    # @param [State, Fixnum, String] state the state portion of the query.
+    # @param [State, Integer, String] state the state portion of the query.
     #   This method will accept a {State} object or anything that {State.find} will accept.
-    # @param [Fixnum, String] county the county ANSI code or name to look up
+    # @param [Integer, String] county the county ANSI code or name to look up
     # @return [County] the {County} associated with the query parameters
-    # @raise [ArgumentError] if the county parameter is not a Fixnum or String,
-    #   or if the state parameter is not a {State}, Fixnum, or String.
+    # @raise [ArgumentError] if the county parameter is not a Integer or String,
+    #   or if the state parameter is not a {State}, Integer, or String.
     # @raise [RuntimeError] if no associated {State} or {County} is found
     def self.find(state, county)
       state = state.is_a?(State) ? state : State.find(state)
